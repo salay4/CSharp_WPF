@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <geustReqID>40000000</geustReqID>
+  <hostUnitID>20000000</hostUnitID>
+  <orderID>10000000</orderID>
+  <Commission>10</Commission>
+  <commissionAll>0</commissionAll>
+</config>

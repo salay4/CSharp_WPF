@@ -1,0 +1,71 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PLWPF.res.languages" xmlns:System="clr-namespace:System;assembly=mscorlib">
+
+    <!--menu-->
+    <System:String x:Key="client">client</System:String>
+    <System:String x:Key="HostingUnitString">Hosting Unit</System:String>
+    <System:String x:Key="WebManagerString">Web Manager</System:String>
+    <System:String x:Key="Save">Save</System:String>
+    <!--general strings-->
+
+    <System:String x:Key="Private Name:">Private Name:</System:String>
+    <System:String x:Key="Family Name:">Family Name:</System:String>
+    <System:String x:Key="Mail Address:">Mail Address:</System:String>
+    <System:String x:Key="Type:">Type:</System:String>
+    <System:String x:Key="Area:">Area:</System:String>
+    <System:String x:Key="Pool:">Pool:</System:String>
+    <System:String x:Key="Jacuzzi:">Jacuzzi:</System:String>
+    <System:String x:Key="Garden:">Garden:</System:String>
+    <System:String x:Key="Childrens Attractions:">Childrens Attractions:</System:String>
+
+    <!--Guest Request special strings-->
+    <System:String x:Key="Adults:">Adults:</System:String>
+    <System:String x:Key="Children:">Children:</System:String>
+    <!--Hosting Unit special strings-->
+    <System:String x:Key="Bank Name:">Bank Name:</System:String>
+    <System:String x:Key="Phone Number:">Phone Number:</System:String>
+    <System:String x:Key="Bank Number:">Bank Number:</System:String>
+    <System:String x:Key="Branch Address:">Branch Address:</System:String>
+    <System:String x:Key="Branch City:">Branch City:</System:String>
+    <System:String x:Key="Branch Number:">Branch Number:</System:String>
+    <System:String x:Key="ID:">ID:</System:String>
+    <System:String x:Key="Collection Clearance:">Collection Clearance:</System:String>
+    <System:String x:Key="Bank Account Number:">Bank Account Number:</System:String>
+    <System:String x:Key="Hosting Unit Name:">Hosting Unit Name:</System:String>
+    <System:String x:Key="Hosting Unit Key:">Hosting Unit Key:</System:String>
+    <System:String x:Key="Host Key:">Host Key:</System:String>
+    <!--string without ":"-->
+    <System:String x:Key="PrivateName">PrivateName</System:String>
+    <System:String x:Key="FamilyName">FamilyName</System:String>
+    <System:String x:Key="MailAddress">MailAddress</System:String>
+    <System:String x:Key="RegistrationDate">RegistrationDate</System:String>
+    <System:String x:Key="EntryDate">EntryDate</System:String>
+    <System:String x:Key="ReleaseDate">ReleaseDate</System:String>
+    <System:String x:Key="Area">Area</System:String>
+    <System:String x:Key="Type">Type</System:String>
+    <System:String x:Key="Pool">Pool</System:String>
+    <System:String x:Key="Jacuzzi">Jacuzzi</System:String>
+    <System:String x:Key="Garden">Garden</System:String>
+    <System:String x:Key="ChildrensAttractions">ChildrensAttractions</System:String>
+    <System:String x:Key="Adults">Adults</System:String>
+    <System:String x:Key="Children">Children</System:String>
+    <System:String x:Key="Guest Requests">Guest Requests</System:String>
+    <System:String x:Key="HostingUnitList">HostingUnitList</System:String>
+    <System:String x:Key="OrderList">OrderList</System:String>
+    <System:String x:Key="HostsList">HostsList</System:String>
+    <System:String x:Key="GuestRequestKey">GuestRequestKey</System:String>
+    <System:String x:Key="Order Key">Order Key</System:String>
+    <System:String x:Key="Create Date">Create Date</System:String>
+    <System:String x:Key="Order Status">Order Status</System:String>
+    <System:String x:Key="Order Date&quot;">Order Date mail</System:String>
+    <System:String x:Key="HostingUnitKey">HostingUnitKey</System:String>
+    <System:String x:Key="Phone Number">Phone Number</System:String>
+    <System:String x:Key="Host Key">Host Key</System:String>
+    <System:String x:Key="Bank Account Number">Bank Account Number</System:String>
+    <System:String x:Key="CollectionClearance">CollectionClearance</System:String>
+    <System:String x:Key="HostingUnitName">HostingUnitName</System:String>
+    <System:String x:Key="Number Of HostingUnits">Number Of HostingUnits</System:String>
+    <System:String x:Key="Status">Status</System:String>
+
+</ResourceDictionary>

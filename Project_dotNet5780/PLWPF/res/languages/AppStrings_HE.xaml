@@ -1,0 +1,72 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PLWPF.res.languages" xmlns:System="clr-namespace:System;assembly=mscorlib">
+
+    <!--menu-->
+    <System:String x:Key="client">לקוח</System:String>
+    <System:String x:Key="HostingUnitString">יחידת אירוח</System:String>
+    <System:String x:Key="WebManagerString">ניהול אתר</System:String>
+    <System:String x:Key="Save">שמור</System:String>
+    <!--general strings-->
+
+    <System:String x:Key="Private Name:">שם פרטי:</System:String>
+    <System:String x:Key="Family Name:">שם משפחה:</System:String>
+    <System:String x:Key="Mail Address:">כתובת אימייל:</System:String>
+    <System:String x:Key="Type:">סוג יחידת אירוח:</System:String>
+    <System:String x:Key="Area:">איזור:</System:String>
+    <System:String x:Key="Pool:">בריכה:</System:String>
+    <System:String x:Key="Jacuzzi:">ג'קוזי:</System:String>
+    <System:String x:Key="Garden:">גינה:</System:String>
+    <System:String x:Key="Childrens Attractions:">אטראקציות לילדים:</System:String>
+
+    <!--Guest Request special strings-->
+    <System:String x:Key="Adults:">מספר מבוגרים:</System:String>
+    <System:String x:Key="Children:">מספר ילדים:</System:String>
+    <!--Hosting Unit special strings-->
+    <System:String x:Key="Bank Name:">שם הבנק:</System:String>
+    <System:String x:Key="Phone Number:">מספר טלפון:</System:String>
+    <System:String x:Key="Bank Number:">מספר בנק:</System:String>
+    <System:String x:Key="Branch Address:">כתובת הסניף:</System:String>
+    <System:String x:Key="Branch City:">עיר סניף הבנק:</System:String>
+    <System:String x:Key="Branch Number:">מספר סניף:</System:String>
+    <System:String x:Key="ID:">ת"ז</System:String>
+    <System:String x:Key="Collection Clearance:">אישור חיוב חשבון:</System:String>
+    <System:String x:Key="Bank Account Number:">מספר חשבון בנק:</System:String>
+    <System:String x:Key="Hosting Unit Name:">שם יחידת אירוח:</System:String>
+    <System:String x:Key="Hosting Unit Key:">מספר יחידת אירוח</System:String>
+    <System:String x:Key="Host Key:">ת"ז של בעלים:</System:String>
+    <!--string without ":"-->
+    <System:String x:Key="PrivateName">שם פרטי</System:String>
+    <System:String x:Key="FamilyName">שם משפחה</System:String>
+    <System:String x:Key="MailAddress">כתובת אימייל</System:String>
+    <System:String x:Key="RegistrationDate">תאריך רישום</System:String>
+    <System:String x:Key="EntryDate">תאריך כניסה</System:String>
+    <System:String x:Key="ReleaseDate">תאריך יציאה</System:String>
+    <System:String x:Key="Area">אזור</System:String>
+    <System:String x:Key="Type">סוג יחידה</System:String>
+    <System:String x:Key="Pool">בריכה</System:String>
+    <System:String x:Key="Jacuzzi">ג'קוזי</System:String>
+    <System:String x:Key="Garden">גינה</System:String>
+    <System:String x:Key="ChildrensAttractions">אטראקציות לילדים</System:String>
+    <System:String x:Key="Adults">מס' מבוגרים</System:String>
+    <System:String x:Key="Children">מס' ילדים</System:String>
+    <System:String x:Key="Guest Requests">דרישות אירוח</System:String>
+    <System:String x:Key="HostingUnitList">יחידות אירוח</System:String>
+    <System:String x:Key="OrderList">הזמנות</System:String>
+    <System:String x:Key="HostsList">מארחים</System:String>
+    <System:String x:Key="GuestRequestKey">מספר דרישת אירוח</System:String>
+    <System:String x:Key="Order Key">מספר הזמנה</System:String>
+    <System:String x:Key="Create Date">תאריך יצירה</System:String>
+    <System:String x:Key="Order Status">סטטוס הזמנה</System:String>
+    <System:String x:Key="Order Date">תאריך שליחת מייל</System:String>
+    <System:String x:Key="HostingUnitKey">מספר יחידת אירוח</System:String>
+    <System:String x:Key="Phone Number">מספר טלפון</System:String>
+    <System:String x:Key="Host Key">תז</System:String>
+    <System:String x:Key="Bank Account Number">מספר חשבון בנק</System:String>
+    <System:String x:Key="CollectionClearance">הרשאת חיוב</System:String>
+    <System:String x:Key="HostingUnitName">שם יחידת אירוח</System:String>
+    <System:String x:Key="Number Of HostingUnits">מספר יחידות אירוח</System:String>
+    <System:String x:Key="Status">סטטוס</System:String>
+
+
+</ResourceDictionary>

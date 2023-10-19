@@ -1,0 +1,43 @@
+﻿<Window x:Class="PLWPF.Orders.HandlingOrders"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF.Orders"
+        mc:Ignorable="d"
+        Title="ממשק ניהול הזמנות עבור יחידת אירוח" Height="680" Width="1500">
+    <Grid>
+
+        <Grid Margin="0,0,0.0,600">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Click="GuestsList_Button_Click" x:Name="GuestsList_Button" Content="{DynamicResource Guest Requests}"  />
+            <Button Grid.Column="1" Click="orderLists_Button_Click" x:Name="orderLists_Button" Content="{DynamicResource OrderList}"  />
+            <Button Grid.Column="2" Click="Calander_Button_Click" x:Name="Calander_Button" Content="לוח שנה"  />
+
+            <!--<Button Click="hostingUnitLists_Button_Click"  x:Name="hostingUnitLists_Button" Content="{DynamicResource HostingUnitList}" Margin="573,0,631.286,615.429" />
+        <Button Click="hostLists_Button_Click" x:Name="hostLists_Button" Content="{DynamicResource HostsList}" Margin="251,0,953.286,615.429" />-->
+
+        </Grid>
+
+        <Grid x:Name="gridContianer" Margin="0,80,0.0,0">
+
+
+                <local:GuestHostingUnitUC x:Name="GuestUC" Visibility="Collapsed" ></local:GuestHostingUnitUC>
+            <local:OrdersHostingUnitUC x:Name="orderUC" Visibility="Collapsed"></local:OrdersHostingUnitUC>
+            <local:calanderForHU x:Name="calanderForHU" Visibility="Collapsed"></local:calanderForHU>
+
+            
+            <!--<local:hostingListsUC x:Name="HostingUC" Visibility="Collapsed"></local:hostingListsUC>
+            <local:HotsUC x:Name="HostsUC" Visibility="Collapsed"></local:HotsUC>-->
+        </Grid>
+    </Grid>
+        
+
+
+
+</Window>

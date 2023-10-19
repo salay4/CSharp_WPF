@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="PLWPF.Orders.GuestHostingUnitUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PLWPF.Orders"
+             mc:Ignorable="d" 
+             Name="MyPropertyWindows"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+
+
+        <Grid Margin="0,0,120,0.0" >
+
+            <DataGrid HorizontalAlignment="Left" Height="401" Margin="10,10,0,0" VerticalAlignment="Top" Width="790"/>
+            <ListView ItemsSource="{Binding}" x:Name="list" IsSynchronizedWithCurrentItem="True" SelectionChanged="list_SelectionChanged" FlowDirection="RightToLeft" 
+                      GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler">
+
+
+                <ListView.View >
+
+
+                    <GridView >
+
+                        <GridViewColumn Header="{DynamicResource PrivateName}" Width="auto" DisplayMemberBinding="{Binding PrivateName}"  ></GridViewColumn>
+                        <GridViewColumn Header="{DynamicResource FamilyName}" Width="auto" DisplayMemberBinding="{Binding FamilyName}"></GridViewColumn>
+                        <!--<GridViewColumn Header="{DynamicResource MailAddress}" Width="auto" DisplayMemberBinding="{Binding MailAddress}"></GridViewColumn>-->
+                        <GridViewColumn Header="{DynamicResource RegistrationDate}" Width="auto" DisplayMemberBinding="{Binding RegistrationDate}"></GridViewColumn>
+                        <GridViewColumn Header="{DynamicResource EntryDate}" Width="auto" DisplayMemberBinding="{Binding EntryDate}"></GridViewColumn>
+                        <GridViewColumn Header="{DynamicResource ReleaseDate}" Width="auto" DisplayMemberBinding="{Binding ReleaseDate}"></GridViewColumn>
+                        <GridViewColumn Header="{DynamicResource Area}" Width="auto" DisplayMemberBinding="{Binding Area}"></GridViewColumn>
+                        <GridViewColumn Header="{DynamicResource Type}" Width="auto" DisplayMemberBinding="{Binding Type}"></GridViewColumn>
+                        <GridViewColumn Header="{DynamicResource Pool}" Width="auto" DisplayMemberBinding="{Binding Pool}"></GridViewColumn>
+                        <GridViewColumn Header="{DynamicResource Jacuzzi}" Width="auto" DisplayMemberBinding="{Binding Jacuzzi}"></GridViewColumn>
+                        <GridViewColumn Header="{DynamicResource Garden}" Width="auto" DisplayMemberBinding="{Binding Garden}"></GridViewColumn>
+                        <GridViewColumn Header="{DynamicResource ChildrensAttractions}" Width="auto" DisplayMemberBinding="{Binding ChildrensAttractions}"></GridViewColumn>
+                        <GridViewColumn Header="{DynamicResource Adults}" Width="auto" DisplayMemberBinding="{Binding Adults}"></GridViewColumn>
+                        <GridViewColumn Header="{DynamicResource Children}" Width="auto" DisplayMemberBinding="{Binding Children}"></GridViewColumn>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Grid>
+
+
+  
+
+        <Grid Margin="0,0,-3,32" FlowDirection="RightToLeft" Background="#FFF7F7F7" HorizontalAlignment="Right" Width="118" Height="408" VerticalAlignment="Bottom" >
+            <!--<Grid Margin="447,-43,0,405" >-->
+            <!--<DockPanel DockPanel.Dock="Right"  >-->
+
+
+            <Grid.RowDefinitions >
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+
+
+
+            <RadioButton Grid.Row="0" x:Name="showAllRadio" Checked="showAllRadio_Checked" Content="הכל" DockPanel.Dock="Right" Margin="2,10,0,14.143" RenderTransformOrigin="0.5,0.5"  >
+                <RadioButton.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform />
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </RadioButton.RenderTransform>
+            </RadioButton>
+            <RadioButton x:Name="showOpenRadio" Checked="showOpenRadio_Checked" Content="פתוח" DockPanel.Dock="Right" Margin="2,13.857,2,10.714" Grid.Row="1" />
+            <RadioButton Grid.Row="2" x:Name="shoLostRadio" Checked="shoLostRadio_Checked" Content="נסגר מחוסר עניין" DockPanel.Dock="Right" Margin="0,9.286,1,13.857"  />
+            <RadioButton Grid.Row="3" x:Name="showCloseRadio" Checked="showCloseRadio_Checked"  Content="נסגרה עסקה" DockPanel.Dock="Right" Margin="2,10.143,4,22"  />
+            <Button Grid.Row="4" Content="צור הזמנה " Margin="0,0,0,0" Click="Button_Click_Create_Order"/>
+
+        </Grid>
+    </Grid>
+
+</UserControl>
