@@ -1,0 +1,6 @@
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\BE\bin\Debug\BE.dll
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\BE\bin\Debug\BE.pdb
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\BE\obj\Debug\BE.csproj.AssemblyReference.cache
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\BE\obj\Debug\BE.dll
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\BE\obj\Debug\BE.pdb

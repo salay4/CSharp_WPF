@@ -1,0 +1,9 @@
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DS\bin\Debug\DS.dll
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DS\bin\Debug\DS.pdb
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DS\bin\Debug\BE.dll
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DS\bin\Debug\BE.pdb
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DS\obj\Debug\DS.csproj.AssemblyReference.cache
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DS\obj\Debug\DS.csproj.CoreCompileInputs.cache
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DS\obj\Debug\DS.csproj.CopyComplete
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DS\obj\Debug\DS.dll
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DS\obj\Debug\DS.pdb

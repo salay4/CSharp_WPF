@@ -1,0 +1,11 @@
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DAL\bin\Debug\DAL.dll
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DAL\bin\Debug\DAL.pdb
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DAL\bin\Debug\BE.dll
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DAL\bin\Debug\DS.dll
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DAL\bin\Debug\BE.pdb
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DAL\bin\Debug\DS.pdb
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DAL\obj\Debug\DAL.dll
+C:\Users\shuker\Source\Repos\CSharpWPF\Project_dotNet5780\DAL\obj\Debug\DAL.pdb
