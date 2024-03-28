@@ -1,4 +1,4 @@
-﻿//imp_BL
+//imp_BL
 
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,11 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using BE;
+
+
+
 //using DAL; // יש להוריד על פניה מלאה לclone  שנמצא בdal . 
 namespace BL
 {
@@ -353,14 +357,14 @@ namespace BL
                                  where item.HostingUnitKey == order.HostingUnitKey
                                  select item;
 
-            if(alredayExisits.Count()>0) //זאת אומרת שכבר יש הזמנה לדרישת אירוח זו וליחדת אירוח זו
+            if (alredayExisits.Count() > 0) //זאת אומרת שכבר יש הזמנה לדרישת אירוח זו וליחדת אירוח זו
             {
                 throw new DuplicateWaitObjectException(string.Format("לא ניתן ליצור הזמנה כפולה!" +
-                    "קיימת כבר הזמנה  מס' " 
+                    "קיימת כבר הזמנה  מס' "
                     + alredayExisits.FirstOrDefault().OrderKey + " עבור דרישת לקוח מספר " + alredayExisits.FirstOrDefault().GuestRequestKey + "ויחידה מספר: "
                     + alredayExisits.FirstOrDefault().HostingUnitKey));
             }
-            
+
 
             if (GR == null)
             {
@@ -448,7 +452,7 @@ namespace BL
             BE.HostingUnit HU = getHostingUnitByID(order.HostingUnitKey); // בהנחה שזה קיים אחרת לא נשלחה בקשה לפונקציה זו
             BE.Order orderBeforeChange = getOrderByID(order.OrderKey);
 
-            
+
 
             if (!(ApproveRequest(GR, HU))) //check if the dates are available on matrix.   // if not, return false.)
             {
@@ -461,7 +465,7 @@ namespace BL
 
 
             if (orderBeforeChange.Status == BE.Enums.StatusEnum.נסגר_בהיענות_הלקוח ||
-                orderBeforeChange.Status == BE.Enums.StatusEnum.נסגר_מחוסר_הענות_הלקוח || 
+                orderBeforeChange.Status == BE.Enums.StatusEnum.נסגר_מחוסר_הענות_הלקוח ||
                 orderBeforeChange.Status == BE.Enums.StatusEnum.נסגר_היות_ויחידית_אירוח_נתפסה_כבר)
             {
                 throw new BE.Tools.UnLogicException(string.Format("לא ניתן לשנות סטטוס הזמנה שנסגרה"));
@@ -480,7 +484,7 @@ namespace BL
 
 
 
-            if (!(orderBeforeChange.Status == BE.Enums.StatusEnum.נשלח_מייל)&& order.Status == BE.Enums.StatusEnum.נסגר_בהיענות_הלקוח)
+            if (!(orderBeforeChange.Status == BE.Enums.StatusEnum.נשלח_מייל) && order.Status == BE.Enums.StatusEnum.נסגר_בהיענות_הלקוח)
             {
                 throw new BE.Tools.UnLogicException(string.Format("לא ניתן לסגור עסקה לפני שליחת מייל."));
 
@@ -499,7 +503,7 @@ namespace BL
 
                 if (!(checkAvailabilityGuestAndHosing(GR, HU))) //אם זה לא זמין ייכנס לתוך
                 {
-                    throw new BE.Tools.UnLogicException(string.Format("שגיאה! יחידה האירוח " + HU.HostingUnitKey  + "\n"+
+                    throw new BE.Tools.UnLogicException(string.Format("שגיאה! יחידה האירוח " + HU.HostingUnitKey + "\n" +
                       "\n" + " תפוסה בתאריכי דרישת האירוח" + GR.GuestRequestKey + "\n" +
                         "  לא ניתן לעדכן הזמנה" + order.OrderKey));
                 }
@@ -513,7 +517,7 @@ namespace BL
 
 
 
-  
+
                 BE.GuestRequest tempGR = GR;
                 GR.Status = BE.Enums.StatusGREnum.נסגרה_עסקה_דרך_האתר;
                 try
@@ -535,7 +539,7 @@ namespace BL
                 try
                 {
                     IDAL.UpdateOrder(order/*.Clone()*/);
-                    
+
 
                 }
                 catch (KeyNotFoundException e)
@@ -577,7 +581,7 @@ namespace BL
                 {
                     foreach (var item in GetOrderList(x => (x.GuestRequestKey == GR.GuestRequestKey)))//לוקח את כל שאר ההזמנות שמשוייכות לדרישת אירוח זו
                     {
-                        if (item.OrderKey!=order.OrderKey)
+                        if (item.OrderKey != order.OrderKey)
                         {
                             item.Status = BE.Enums.StatusEnum.נסגר_מחוסר_הענות_הלקוח;
                             IDAL.UpdateOrder(item/*.Clone()*/);
@@ -616,7 +620,7 @@ namespace BL
             }
 
 
-            if ((flag != true)&& (!(order.Status == BE.Enums.StatusEnum.נסגר_בהיענות_הלקוח))) // במידה ומסנים לעדכן שדה שהוא לא השדה ההמוזכר. 
+            if ((flag != true) && (!(order.Status == BE.Enums.StatusEnum.נסגר_בהיענות_הלקוח))) // במידה ומסנים לעדכן שדה שהוא לא השדה ההמוזכר. 
             {
                 try
                 {
@@ -628,7 +632,7 @@ namespace BL
                     throw e;
                 }
             }
-           
+
 
         }
 
@@ -689,7 +693,7 @@ namespace BL
         public void bankAccountDebit(BE.HostingUnit HU, int Chargeamount)
         {
 
-            BE.Configuration.commissionAll += Chargeamount; 
+            BE.Configuration.commissionAll += Chargeamount;
 
         }
 
@@ -745,7 +749,7 @@ namespace BL
         /// <returns></returns>
         bool checkAvailabilityGuestAndHosing(BE.GuestRequest GR, BE.HostingUnit HU) //check if the dates are available on matrix.   // if not, return false.
         {
-          
+
             for (DateTime tempDate = GR.EntryDate; tempDate < GR.ReleaseDate; tempDate = tempDate.AddDays(1))
                 if (this[tempDate, HU]) { return false; }// check if the days are avaiable
             return true;
@@ -876,7 +880,7 @@ namespace BL
             return from Unit in GetHostingUnitList()
                    group Unit by Unit.Owner.HostKey into Units
                    let Owner = Units.FirstOrDefault().Owner
-                   let num_of_Unit = Units.Count() 
+                   let num_of_Unit = Units.Count()
                    group Owner by num_of_Unit;
         }
 
@@ -935,30 +939,17 @@ namespace BL
 
         public void sendMail(BE.Order order) //לממש שליחת מייל עם פרטי הזמנה בשלב הבא
         {
+
+
             Console.WriteLine("the mail as been sent");
         }
 
-        public void sendAnEamil()
-        {
-            var client = new SmtpClient("smtp.gmail.com", 587)
-            {
-                Credentials = new NetworkCredential("zimmerisrael123@gmail.com", "Aa12345678910"),
-                EnableSsl = true
-            };
 
-            client.Send("shuker@g.jct.ac.il", "shuker@g.jct.ac.il", "hi behrooz, how was your nohrooz?", "this is a messege from your iranian friend. \n messege number: ");
-            Console.WriteLine("Sent");
-        }
 
         /// <summary>
         /// מימוש שליחת מייל 
         /// </summary>
-        public void sendAnEmail()
-        {
 
-
-
-        }
         #endregion
 
 
@@ -969,14 +960,14 @@ namespace BL
             Console.WriteLine("\n\n\n\n\n in the func1 \n\n\n\n\n\n");
 
 
-          //  try
+            //  try
             {
                 string sw = "";
                 //string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
-                string path  = (Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName +@"\BL\bank\f.txt");
+                string path = (Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\BL\bank\f.txt");
 
-                Console.WriteLine("\n\npath path path\n\n"+ path+"\n\n");
-               
+                Console.WriteLine("\n\npath path path\n\n" + path + "\n\n");
+
                 sw = System.IO.File.ReadAllText(path);
                 DateTime dff = DateTime.Parse(sw); //תאריך שקוראים מתוך קובץ זמן עדכון אחרון לתאריך בנקים.
 
@@ -989,23 +980,23 @@ namespace BL
                     Console.WriteLine("\n\n\n\n\n in the if \n\n\n\n\n\n");
                     getBankDetails();
                     Console.WriteLine("fdsfhkdsjfhdskjfhkdsjfs");
-                string now = DateTime.Now.ToString();
-                Console.WriteLine(now);
-                System.IO.File.WriteAllText(path, now);
+                    string now = DateTime.Now.ToString();
+                    Console.WriteLine(now);
+                    System.IO.File.WriteAllText(path, now);
                 }
 
 
             }
-           // catch (Exception e)
+            // catch (Exception e)
             {
 
-               // throw new Exception();
+                // throw new Exception();
             }
-            
-           
 
 
-            }
+
+
+        }
 
         public void getBankDetails()
         {
@@ -1061,9 +1052,9 @@ namespace BL
                     if (new System.Net.NetworkInformation.Ping().Send("google.com").Status == IPStatus.Success)
                     {
                         updateBankDetails();
-                     
+
                         long length = new FileInfo(BE.Tools.BankAccuntPath).Length;
-                        if (length > 50000) break; 
+                        if (length > 50000) break;
                     }
                 }
                 catch { }
@@ -1073,8 +1064,10 @@ namespace BL
         }
 
 
-        #endregion 
+        #endregion
 
+
+        #region Validate ID
         /// <summary>
         /// בדיקת חוקיות ת"ז בישראל
         /// </summary>
@@ -1103,8 +1096,46 @@ namespace BL
             return (mone % 10 == 0);
         }
 
+        #endregion
+
+        #region mail 
+        public void sendAnEmail(string recipientMail, string subject, string body)
+        {
+
+            string fromMail = "zimmerisrael123@gmail.com";
+            string fromPassword = "kruattyierjdxbbw";
+
+            MailMessage message = new MailMessage();
+            message.From = new MailAddress(fromMail);
+
+
+            message.Subject = subject;
+            /*          message.To.Add(new MailAddress(getGuestRequestByID(order.GuestRequestKey).MailAddress));*/
+            message.To.Add(new MailAddress(recipientMail));
+            message.Body = body;
+            message.IsBodyHtml = true;
+
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential(fromMail, fromPassword),
+                EnableSsl = true,
+            };
+
+            smtpClient.Send(message);
+
+
+
+
+
+        }
+
+
+
         public void sendEmail(Order order)
         {
+
+
             GuestRequest guest = new GuestRequest();
             guest = getGuestRequestByID(order.GuestRequestKey);
             HostingUnit HUshow = new HostingUnit();
@@ -1113,50 +1144,53 @@ namespace BL
 
             try
             {
-               
+
                 //  System.Windows.MessageBox.Show(" נסגרה בהצלחה");
 
-                string str = "שלום  " + guest.PrivateName + " " + guest.FamilyName +
-                     "\n" + " אנחנו נרגשים  לבשר לך שנמצאה התאמה באתרינו עבור דרישת האירוח שלך!" +
-                     "פרטי ההזמנה : "
-                    +
-                    (order.ToString() + "\n \n\n "
-                     + " " + "  " + HUshow.HostingUnitName + " מאיזור ה " + HUshow.Area +
-                     " הזמנה עבור יחידת אירות מסוג " + HUshow.Type + "תאריך כניסה :" + guest.EntryDate + "\n  תאריך יציאה: " + guest.ReleaseDate + "\n"
-                     + "\n" + " לפרטים ולסגירת עסקה אנא צרו קשר עם המארח במספר טלפון: " + HUshow.Owner.PhoneNumber
-                     + "\n  :או במייל בכתובת " + HUshow.Owner.MailAddress);
+                string str = "<html><body> " + "<P align=\"right\">" +
+                    "שלום  " + guest.PrivateName + " " + guest.FamilyName +
+                    "<br>" +
+                    "\n" + " אנחנו נרגשים  לבשר לך שנמצאה התאמה באתרינו עבור דרישת האירוח שלך!" +
+                    "<br>" + "<br>" +
+                     "פרטי ההזמנה : "+
+                    "<br>" +
+                    (order.ToString() + "\n" + "<br>" + "<br>" +
+                     " " + "  " + HUshow.HostingUnitName + " -מאיזור ה " + "<br>" + HUshow.Area + "<br>" +
+                     " הזמנה עבור יחידת אירות מסוג "  +"<br>" + HUshow.Type + "<br>" + "תאריך כניסה :" + guest.EntryDate + "<br>" +"\n  תאריך יציאה: " + guest.ReleaseDate + "\n" + "<br>"
+                     + "\n" + " לפרטים ולסגירת עסקה אנא צרו קשר עם המארח במספר טלפון: " + HUshow.Owner.PhoneNumber + "<br>"
+                     + "\n  :או במייל בכתובת "  + "<br>" + HUshow.Owner.MailAddress)
+
+                     + "</p>" + "</body></html>"
+                     ;
 
 
-                var client = new SmtpClient("smtp.gmail.com", 587)
-                {
-                    Credentials = new NetworkCredential("zimmerisrael123@gmail.com", "Aa12345678910"),
-                    EnableSsl = true
-                };
+
+
+
+
+
 
                 Thread T1 = new Thread(delegate ()
                 {
-                    using (var message = new MailMessage("zimmerisrael123@gmail.com", getGuestRequestByID(order.GuestRequestKey).MailAddress)
+
                     {
-                        Subject = "נמצאה התאמת בקשת אירוח!",
-                        Body = str
-                    })
-                    {
-                        {
-                            client.Send(message);
-                        }
+                        string subject = "נמצאה התאמת בקשת אירוח!";
+                        string body = str;
+                        sendAnEmail(getGuestRequestByID(order.GuestRequestKey).MailAddress, subject, body);
+
                     }
                 });
 
 
 
                 T1.Start();
-                
-               /* MessageBox.Show("המייל נשלח בהצלחה!", "המייל נשלח");
+
+                /* MessageBox.Show("המייל נשלח בהצלחה!", "המייל נשלח");
 
 
-                IenumaOrder = bl.GetOrderList(x => x.HostingUnitKey == number); *///הצג רק הזמנות רלוונטיות ליחידת אירוח זו. 
+                 IenumaOrder = bl.GetOrderList(x => x.HostingUnitKey == number); *///הצג רק הזמנות רלוונטיות ליחידת אירוח זו. 
 
-             }
+            }
             catch (ArgumentNullException ex)
             {
                 order = orderTemp;
@@ -1209,9 +1243,10 @@ namespace BL
                 throw ex;
 
             }
-        
-            
+
+
         }
+        #endregion mail
 
         public IEnumerable<BE.BankBranch> getAllBankBranches() //getAllBankBranches function.
         { //the function return all Bank Branches
